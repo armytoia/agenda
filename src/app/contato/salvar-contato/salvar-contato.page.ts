@@ -11,7 +11,6 @@ import { Router } from '@angular/router';
 export class SalvarContatoPage implements OnInit {
   contato: Contato = new Contato();
   constructor(private fire: AngularFireDatabase , private rota: Router) { }
-
   ngOnInit() {
   }
   salvar() {
