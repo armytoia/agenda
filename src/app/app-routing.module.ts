@@ -4,8 +4,10 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', loadChildren: './home/home.module#HomePageModule' },
-  { path: 'salvar-contato', loadChildren: './contato/salvar-contato/salvar-contato.module#SalvarContatoPageModule' },
-  { path: 'listar-contato', loadChildren: './contato/listar-contato/listar-contato.module#ListarContatoPageModule' },
+  { path: 'pagina', loadChildren: './pagina/pagina.module#PaginaPageModule' },
+  { path: 'nova', loadChildren: './nova/nova.module#NovaPageModule' },
+  { path: 'cadastro', loadChildren: './cadastro/cadastro.module#CadastroPageModule' },
+
 ];
 
 @NgModule({
