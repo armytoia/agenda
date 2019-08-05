@@ -20,10 +20,4 @@ export class HomePage {
     this.afAuth.auth.signOut();
     this.router.navigate(['home']);
   }
-  redefinir(){
-  this.router.navigate['nova']
-  }
-  ir(){
-  this.router.navigate['cadastro']
-  }
 }

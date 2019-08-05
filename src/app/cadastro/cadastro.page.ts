@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Usuario } from '../entidade/usuario';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { Router } from '@angular/router';
+import { AngularFireAuth } from "angularfire2/auth";
 
 @Component({
   selector: 'app-cadastro',
@@ -10,12 +11,12 @@ import { Router } from '@angular/router';
 })
 export class CadastroPage implements OnInit {
   usuario: Usuario = new Usuario();
-  constructor(private fire: AngularFireDatabase , private rota: Router) { }
+  constructor(private afAuth: AngularFireAuth, private router: Router) { }
   ngOnInit() {
   }
   cadastrar() {
-    this.fire.list('usuario').push(this.usuario);
-    this.usuario = new Usuario();
-    this.rota.navigate(['pagina']);
+    this.afAuth.auth.createUserWithEmailAndPassword(this.usuario.email, this.usuario.senha).then(
+      () => { this.router.navigate(['pagina']); }
+    ).catch((erro) => console.log(erro));
   }
 }
