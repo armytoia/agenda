@@ -16,6 +16,7 @@ export class HomePage {
       () => { this.router.navigate(['pagina']); }
     ).catch((erro) => console.log(erro));
   }
+
   logout() {
     this.afAuth.auth.signOut();
     this.router.navigate(['home']);
