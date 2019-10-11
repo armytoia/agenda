@@ -1,0 +1,70 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Massa Gorda
+    </ion-title>
+  </ion-toolbar>
+  <ion-button color="dark" expand="full" href = "salvar-tela">
+    <ion-icon name="add-circle"></ion-icon>telas
+  </ion-button>
+</ion-header>
+<ion-content>
+  <ion-card-content>
+  <form #meuSonho='ngForm'>
+    <ion-item>
+      <ion-label position="floating">Ano de nascimento *:</ion-label>
+      <ion-input #data='ngModel' [(ngModel)]="massa.data" name="data" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Sexo *:</ion-label>
+      <ion-select  #sexo='ngModel' [(ngModel)]="massa.sexo" name="sexo" required>
+        <ion-select-option value = "feminino">Feminino</ion-select-option>
+        <ion-select-option value = "masculino">Masculino</ion-select-option>
+        </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Data:</ion-label>
+      <ion-datetime displayFormat="DD MM" placeholder="selecione a data" [(ngModel)]="massa.dia" name="dia"></ion-datetime>
+    </ion-item>
+
+
+    <ion-item>
+      <ion-label position="floating">Altura:</ion-label>
+      <ion-input [(ngModel)]="massa.altura" name="altura"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">IMC *:</ion-label>
+      <ion-input #imc='ngModel' [(ngModel)]="massa.imc" name="imc" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Peso *:</ion-label>
+      <ion-input #peso='ngModel' [(ngModel)]="massa.peso" name="peso" required></ion-input>
+    </ion-item>
+  </form>
+  <ion-card>
+  <span style='color:red' *ngIf="data.errors && data.touched">
+    <ion-label>A data de nascimento é obrigatória! </ion-label>
+  </span>
+  <span style='color:blue' *ngIf="sexo.errors && sexo.touched">
+    <ion-label> O sexo é obrigatório!</ion-label>
+  </span>
+  <span style='color:red' *ngIf="imc.errors && imc.touched">
+    <ion-label>O imc é obrigatório! </ion-label>
+  </span>
+  <span style='color:blue' *ngIf="peso.errors && peso.touched">
+    <ion-label> O peso é obrigatório!</ion-label>
+  </span>
+</ion-card>
+</ion-card-content>
+
+
+  <ion-button [disabled]='!meuSonho.form.valid' expand="full" color="secondary" (click)="calcular()"> calcular </ion-button>
+  <ion-button [disabled]='!meuSonho.form.valid' expand="full" color="secondary" (click)="salvar()"> salvar dados </ion-button>
+
+
+
+
+
+</ion-content>
+<ion-footer>
+</ion-footer>

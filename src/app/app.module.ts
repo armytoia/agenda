@@ -7,31 +7,40 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { AppComponent } from './app.component';
+import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
+import { MassaGordaInicioComponent } from './component/massagordainicio/massagordainicio.component';
+import { GraficoComponent } from './component/grafico/grafico.component';
+import { CadastrarMassaComponent } from './massa/cadastrar-massa/cadastrar-massa.component';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
-import { FormsModule } from '@angular/forms';
+import { ListarMassaComponent } from './massa/listar-massa/listar-massa.component';
+import { SalvarTelaComponent } from './tela/salvar-tela/salvar-tela.component';
+/*import { ChartsModule } from 'ng2-charts';*/
+
 
 @NgModule({
-  declarations: [AppComponent,],
+  declarations: [AppComponent, MassaGordaInicioComponent, GraficoComponent, CadastrarMassaComponent, ListarMassaComponent, SalvarTelaComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, FormsModule,
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, FormsModule, /*ChartsModule,*/
     AngularFireModule.initializeApp({
-      apiKey: "AIzaSyDO1fbeV6mZjOCsp5pgYvBOndRrn53qFzo",
-      authDomain: "agenda-641ba.firebaseapp.com",
-      databaseURL: "https://agenda-641ba.firebaseio.com",
-      projectId: "agenda-641ba",
-      storageBucket: "agenda-641ba.appspot.com",
-      messagingSenderId: "547465998694",
-      appId: "1:547465998694:web:c6798931069a2b52"
-    }), AngularFireDatabaseModule
+      apiKey: "AIzaSyATTE9-BcwmuX6yIBFDxkDYeeOdjupBaY0",
+      authDomain: "kook-98558.firebaseapp.com",
+      databaseURL: "https://kook-98558.firebaseio.com",
+      projectId: "kook-98558",
+      storageBucket: "kook-98558.appspot.com",
+      messagingSenderId: "619534260429",
+      appId: "1:619534260429:web:ed61d51fccdba521"
+
+  }), AngularFireDatabaseModule
+
 
   ],
-  providers: [
-    StatusBar,
-    SplashScreen,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
-  ],
+providers: [
+  StatusBar,
+  SplashScreen,
+  { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

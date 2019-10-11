@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      IMC
+    </ion-title>
+  </ion-toolbar>
+    <ion-button color = "dark" expand = "full" href = "salvar-tela"> <ion-icon name="add-circle"></ion-icon>telas</ion-button>
+</ion-header>
+<ion-content>
+<ion-card-content>
+  <ion-item>
+    <ion-label position="floating">Altura:</ion-label>
+    <ion-select name="altura" [(ngModel)]="imc.massa" okText="Ok" cancelText="voltar">
+      <ion-select-option *ngFor='let massa of listaMassa | async' [value]="massa">{{massa.altura}}</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Peso:</ion-label>
+    <ion-select [(ngModel)]="imc.massa" name="peso" okText="Ok" cancelText="voltar">
+      <ion-select-option *ngFor='let massa of listaMassa | async' [value]="massa">{{massa.peso}}</ion-select-option>
+    </ion-select>
+  </ion-item>
+</ion-card-content>
+
+
+  <ion-button expand="full" color="secondary" (click)="calcular()"> calcular </ion-button>
+  <ion-button expand="full" color="secondary" (click)="salvar()"> salvar </ion-button>
+</ion-content>
+<ion-footer>
+</ion-footer>
